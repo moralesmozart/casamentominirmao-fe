@@ -6,10 +6,6 @@ import { SectionEight } from './components/sections/SectionEight';
 import { SectionFive } from './components/sections/SectionFive';
 import { SectionFour } from './components/sections/SectionFour';
 import { SectionOne } from './components/sections/SectionOne';
-import { SectionSeven } from './components/sections/SectionSeven';
-import { SectionSix } from './components/sections/SectionSix';
-import { SectionThree } from './components/sections/SectionThree';
-import { SectionTwo } from './components/sections/SectionTwo';
 import { UploadsSection } from './components/sections/UploadsSection';
 import { getNextStep, getPrevStep } from './data/steps';
 import { useCeremonyForm } from './hooks/useCeremonyForm';
@@ -59,12 +55,8 @@ function App() {
           <Intro onContinue={() => goTo('section-1')} onBack={() => goTo('hero')} />
         ) : null}
         {step === 'section-1' ? <SectionOne {...sectionProps} /> : null}
-        {step === 'section-2' ? <SectionTwo {...sectionProps} /> : null}
-        {step === 'section-3' ? <SectionThree {...sectionProps} /> : null}
         {step === 'section-4' ? <SectionFour {...sectionProps} /> : null}
         {step === 'section-5' ? <SectionFive {...sectionProps} /> : null}
-        {step === 'section-6' ? <SectionSix {...sectionProps} /> : null}
-        {step === 'section-7' ? <SectionSeven {...sectionProps} /> : null}
         {step === 'section-8' ? <SectionEight {...sectionProps} /> : null}
         {step === 'uploads' ? (
           <UploadsSection

@@ -12,7 +12,7 @@ export function Intro({ onContinue, onBack }: IntroProps) {
         <div className="intro__copy">
           <p>Eu poderia simplesmente sentar e escrever algumas palavras bonitas.</p>
           <p>
-            Mas depois de conhecer a Paula há quase 20 anos, isso seria fácil demais.
+            Mas depois de conhecer a Tolly há quase 20 anos, isso seria fácil demais.
           </p>
           <p>
             Quero contar a história de vocês do jeito que ela merece ser contada: com as

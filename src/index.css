@@ -49,13 +49,6 @@ body {
   color: var(--ink);
 }
 
-body[data-step='section-7'] {
-  background:
-    radial-gradient(ellipse 70% 45% at 80% -5%, rgba(176, 141, 87, 0.22), transparent 50%),
-    radial-gradient(ellipse 50% 40% at 0% 20%, rgba(92, 83, 76, 0.08), transparent 45%),
-    linear-gradient(180deg, #f3ebe0 0%, #efe6d8 45%, #f7f1e8 100%);
-}
-
 #root {
   min-height: 100vh;
 }

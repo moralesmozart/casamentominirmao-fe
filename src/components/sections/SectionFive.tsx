@@ -25,16 +25,6 @@ const TONE_OPTIONS = [
   'Uma mistura de tudo',
 ];
 
-const EMOTION_OPTIONS = [
-  'Rir',
-  'Chorar',
-  'Se emocionar',
-  'Refletir',
-  'Celebrar',
-  'Se surpreender',
-  'Sentir-se parte da história',
-];
-
 const RITUAL_OPTIONS = [
   'Votos',
   'Alianças',
@@ -80,8 +70,8 @@ export function SectionFive({
 
   return (
     <QuestionSection
-      number={5}
-      total={8}
+      number={3}
+      total={4}
       label="A cerimônia"
       title="Agora vamos falar do grande dia."
       footer={
@@ -99,19 +89,6 @@ export function SectionFive({
         values={ceremony.tone}
         onChange={(tone) => patch({ tone })}
         hint="Podem escolher mais de uma."
-      />
-      <MultiSelect
-        label="O que vocês querem que as pessoas sintam durante a cerimônia?"
-        options={EMOTION_OPTIONS}
-        values={ceremony.desiredEmotions}
-        onChange={(desiredEmotions) => patch({ desiredEmotions })}
-      />
-      <TextQuestion
-        id="emotions-note"
-        label="Se quiserem explicar melhor…"
-        value={ceremony.emotionsNote}
-        onChange={(emotionsNote) => patch({ emotionsNote })}
-        rows={3}
       />
       <MultiSelect
         label="Haverá algum ritual especial?"

@@ -1,21 +1,9 @@
 import type { AppStep } from '../types/form';
 
-export interface StepMeta {
-  id: AppStep;
-  kind: 'landing' | 'chapter' | 'complete';
-  number?: number;
-  total?: number;
-  label?: string;
-}
-
 export const QUESTION_STEPS: AppStep[] = [
   'section-1',
-  'section-2',
-  'section-3',
   'section-4',
   'section-5',
-  'section-6',
-  'section-7',
   'section-8',
   'uploads',
 ];
@@ -31,16 +19,27 @@ export const CHAPTER_META: Record<
   string,
   { number: number; total: number; label: string }
 > = {
-  'section-1': { number: 1, total: 8, label: 'Vocês dois' },
-  'section-2': { number: 2, total: 8, label: 'Um no outro' },
-  'section-3': { number: 3, total: 8, label: 'Amor e futuro' },
-  'section-4': { number: 4, total: 8, label: 'Pessoas importantes' },
-  'section-5': { number: 5, total: 8, label: 'A cerimônia' },
-  'section-6': { number: 6, total: 8, label: 'Material secreto' },
-  'section-7': { number: 7, total: 8, label: 'Arquivo Mini Irmão' },
-  'section-8': { number: 8, total: 8, label: 'Última pergunta' },
-  uploads: { number: 9, total: 9, label: 'Arquivos extras' },
+  'section-1': { number: 1, total: 4, label: 'Vocês dois' },
+  'section-4': { number: 2, total: 4, label: 'Pessoas importantes' },
+  'section-5': { number: 3, total: 4, label: 'A cerimônia' },
+  'section-8': { number: 4, total: 4, label: 'Última pergunta' },
+  uploads: { number: 5, total: 5, label: 'Áudios' },
 };
+
+const REMOVED_STEP_REDIRECT: Partial<Record<AppStep, AppStep>> = {
+  'section-2': 'section-4',
+  'section-3': 'section-4',
+  'section-6': 'section-8',
+  'section-7': 'section-8',
+};
+
+export function normalizeStep(step: AppStep | string | undefined): AppStep {
+  if (!step) return 'hero';
+  const redirected = REMOVED_STEP_REDIRECT[step as AppStep];
+  if (redirected) return redirected;
+  if ((FLOW as string[]).includes(step)) return step as AppStep;
+  return 'hero';
+}
 
 export function getNextStep(step: AppStep): AppStep | null {
   const index = FLOW.indexOf(step);

@@ -24,8 +24,8 @@ export function SectionEight({
 
   return (
     <QuestionSection
-      number={8}
-      total={8}
+      number={4}
+      total={4}
       label="Última pergunta"
       title="Última pergunta. Prometo."
       footer={

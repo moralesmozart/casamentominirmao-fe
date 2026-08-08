@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { createEmptyAnswers } from '../data/initialForm';
 import { submitCeremonyToSupabase } from '../lib/submitToSupabase';
 import { isSupabaseConfigured } from '../lib/supabase';
+import { normalizeStep } from '../data/steps';
 import type { AppStep, CeremonyAnswers, PersistedState } from '../types/form';
 import { STORAGE_KEY } from '../types/form';
 
@@ -32,7 +33,7 @@ function saveState(state: PersistedState) {
 
 export function useCeremonyForm() {
   const initial = loadState();
-  const [step, setStep] = useState<AppStep>(initial?.step ?? 'hero');
+  const [step, setStep] = useState<AppStep>(normalizeStep(initial?.step));
   const [answers, setAnswers] = useState<CeremonyAnswers>(
     normalizeAnswers(initial?.answers ?? createEmptyAnswers()),
   );

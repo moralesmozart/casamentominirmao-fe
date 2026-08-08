@@ -26,8 +26,8 @@ export function SectionFour({
 
   return (
     <QuestionSection
-      number={4}
-      total={8}
+      number={2}
+      total={4}
       label="Pessoas importantes"
       title="Nenhuma história é construída sozinha."
       footer={

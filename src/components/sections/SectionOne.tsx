@@ -32,7 +32,7 @@ export function SectionOne({
   return (
     <QuestionSection
       number={1}
-      total={8}
+      total={4}
       label="Vocês dois"
       title="Comecemos pela história de vocês."
       subtitle="Quero entender o que fez essa história chegar até aqui."
