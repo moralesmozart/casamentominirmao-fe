@@ -65,24 +65,6 @@ export function SectionOne({
         value={story.firstMoment}
         onChange={set('firstMoment')}
       />
-      <TextQuestion
-        id="defining-story"
-        label="Qual é uma história que representa muito bem vocês como casal?"
-        value={story.definingStory}
-        onChange={set('definingStory')}
-      />
-      <TextQuestion
-        id="important-moment"
-        label="Qual foi um dos momentos mais importantes que vocês viveram juntos?"
-        value={story.importantMoment}
-        onChange={set('importantMoment')}
-      />
-      <TextQuestion
-        id="difficult-moment"
-        label="Qual foi um momento difícil que vocês enfrentaram juntos e que fortaleceu a relação?"
-        value={story.difficultMoment}
-        onChange={set('difficultMoment')}
-      />
     </QuestionSection>
   );
 }
