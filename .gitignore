@@ -26,3 +26,7 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+# Private ops / secrets (never publish)
+PRIVATE_SETUP.md
+supabase/schema.local.sql
+supabase/*.local.sql

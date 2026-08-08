@@ -27,8 +27,8 @@ export function CompletionScreen({
         </div>
         <p className="complete__note">
           {isCloudEnabled
-            ? 'As respostas (e áudios, se houver) já estão salvas com o Mozart. Uma cópia também continua neste navegador.'
-            : 'Uma cópia das respostas ficou salva neste navegador.'}
+            ? 'Recebemos a história de vocês. Obrigado.'
+            : 'Obrigado — as respostas ficaram registradas neste aparelho.'}
         </p>
         <button type="button" className="btn btn--primary" onClick={onRestart}>
           Voltar ao início

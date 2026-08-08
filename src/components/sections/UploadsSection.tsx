@@ -48,8 +48,8 @@ export function UploadsSection({
           {submitError ? <p className="field__error">{submitError}</p> : null}
           <p className="submit-hint">
             {isCloudEnabled
-              ? 'Ao enviar, as respostas e os áudios vão direto para o Mozart.'
-              : 'Envio na nuvem ainda não configurado — por enquanto as respostas ficam neste aparelho.'}
+              ? 'Ao enviar, as respostas chegam com segurança para quem está preparando a cerimônia.'
+              : 'Envio ainda não está disponível neste ambiente.'}
           </p>
           <Navigation
             onBack={onBack}

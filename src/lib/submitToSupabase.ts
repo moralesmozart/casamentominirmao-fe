@@ -53,7 +53,7 @@ async function uploadMedia(
       });
 
     if (error) {
-      throw new Error(`Falha ao enviar ${file.name}: ${error.message}`);
+      throw new Error('Não foi possível enviar um dos anexos. Tente de novo.');
     }
 
     uploaded.push({
@@ -83,9 +83,7 @@ export async function submitCeremonyToSupabase(
   answers: CeremonyAnswers,
 ): Promise<SubmitResult> {
   if (!isSupabaseConfigured || !supabase) {
-    throw new Error(
-      'Supabase ainda não está configurado. Adicione VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY no .env.local',
-    );
+    throw new Error('Envio indisponível no momento. Tente de novo mais tarde.');
   }
 
   const submissionId = crypto.randomUUID();
@@ -106,7 +104,7 @@ export async function submitCeremonyToSupabase(
   });
 
   if (error) {
-    throw new Error(`Falha ao salvar respostas: ${error.message}`);
+    throw new Error('Não foi possível enviar as respostas. Tente de novo.');
   }
 
   return { submissionId, media };
