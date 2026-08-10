@@ -53,6 +53,12 @@ async function uploadMedia(
       });
 
     if (error) {
+      const detail = error.message?.toLowerCase() ?? '';
+      if (detail.includes('bucket') || detail.includes('not found')) {
+        throw new Error(
+          'Armazenamento de áudio ainda não está pronto. Envie sem áudio ou avise quem montou o site.',
+        );
+      }
       throw new Error('Não foi possível enviar um dos anexos. Tente de novo.');
     }
 

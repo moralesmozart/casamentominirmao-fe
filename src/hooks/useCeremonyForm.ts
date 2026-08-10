@@ -99,29 +99,13 @@ export function useCeremonyForm() {
     setSubmitError(null);
 
     try {
-      if (isSupabaseConfigured) {
-        await submitCeremonyToSupabase(answers);
-      } else {
-        // Fallback local while env keys are missing
-        const now = new Date().toISOString();
-        const payload = {
-          couple: {
-            paula: 'Paula Velasco',
-            felipe: 'Felipe Lenzi Rocha',
-          },
-          submittedAt: now,
-          ...answers,
-        };
-        const blob = new Blob([JSON.stringify(payload, null, 2)], {
-          type: 'application/json',
-        });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `casamento-mini-irmao-${now.slice(0, 10)}.json`;
-        link.click();
-        URL.revokeObjectURL(url);
+      if (!isSupabaseConfigured) {
+        throw new Error(
+          'Envio ainda não está configurado neste ambiente. Avise quem montou o site.',
+        );
       }
+
+      await submitCeremonyToSupabase(answers);
 
       const now = new Date().toISOString();
       setSubmittedAt(now);

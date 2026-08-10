@@ -47,7 +47,7 @@ export function UploadsSection({
           <p className="submit-hint">
             {isCloudEnabled
               ? 'Ao enviar, as respostas chegam com segurança para quem está preparando a cerimônia.'
-              : 'Envio ainda não está disponível neste ambiente.'}
+              : 'Envio ainda não está disponível neste ambiente — as respostas não serão enviadas.'}
           </p>
           <Navigation
             onBack={onBack}
@@ -55,7 +55,7 @@ export function UploadsSection({
             onSave={onSave}
             saveStatus={saveStatus}
             nextLabel={submitting ? 'Enviando…' : 'Enviar história'}
-            nextDisabled={submitting}
+            nextDisabled={submitting || !isCloudEnabled}
             backDisabled={submitting}
           />
         </>
